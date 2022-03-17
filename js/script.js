@@ -4,7 +4,7 @@ const app = new Vue({
     el: '#app',
 
     beforeMount(){
-      this.startAutoSlide();
+      this.rightSlide();
    },
     data: {
 
@@ -60,28 +60,35 @@ const app = new Vue({
             if(this.activeElement < 0) {this.activeElement = (this.stadiums.length - 1)};
 
         },
-        startAutoSlide: function(){
-            clearInterval(this.autoSlide);
-            this.autoSlide = setInterval(this.nextImage,2000);
-            this.autoSlideControl = 1;
-            
-            
-        },
         invertSlide: function(){
             if(this.autoSlideControl == 1){
-                clearInterval(this.autoSlide);
-                this.autoSlide = setInterval(this.prevImage,2000);
-                this.autoSlideControl = 2;
+                this.leftSlide();
             }
             else{
-                this.startAutoSlide();
+                this.rightSlide();
             }
-            
+        },
+        stopSlide: function(){
+            clearInterval(this.autoSlide);
+        },
+        restartSlide: function(){
+            if(this.autoSlideControl == 1){
+                this.rightSlide();
+            }
+            else{
+                this.leftSlide();
+            }
+        },
+        leftSlide: function(){  
+            clearInterval(this.autoSlide);
+            this.autoSlide = setInterval(this.prevImage,2000);
+            this.autoSlideControl = 2;   
+        },
+        rightSlide: function(){
+            clearInterval(this.autoSlide);
+            this.autoSlide = setInterval(this.nextImage,2000);
+            this.autoSlideControl = 1;   
         }
-        
-
-
-        
        
     }
 
