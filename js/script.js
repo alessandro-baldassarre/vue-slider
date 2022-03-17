@@ -12,6 +12,8 @@ const app = new Vue({
 
       autoSlide: null,
 
+      autoSlideControl: 1,
+
       stadiums: [
 
         {
@@ -59,14 +61,22 @@ const app = new Vue({
 
         },
         startAutoSlide: function(){
+            clearInterval(this.autoSlide);
             this.autoSlide = setInterval(this.nextImage,2000);
+            this.autoSlideControl = 1;
+            
             
         },
         invertSlide: function(){
-            clearInterval(this.autoSlide);
+            if(this.autoSlideControl == 1){
+                clearInterval(this.autoSlide);
+                this.autoSlide = setInterval(this.prevImage,2000);
+                this.autoSlideControl = 2;
+            }
+            else{
+                this.startAutoSlide();
+            }
             
-            this.autoSlide = setInterval(this.prevImage,2000);
-            console.log(this.autoSlide);
         }
         
 
