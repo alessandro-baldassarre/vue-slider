@@ -50,14 +50,14 @@ const app = new Vue({
             
             this.activeElement++;
            
-            if(this.activeElement >= this.stadiums.length) {this.activeElement = 0};
+            if(this.activeElement >= this.stadiums.length) {this.activeElement = 0;this.autoSlideControl = 1;};
 
         },
         prevImage: function(){
             
             this.activeElement--;
            
-            if(this.activeElement < 0) {this.activeElement = (this.stadiums.length - 1)};
+            if(this.activeElement < 0) {this.activeElement = (this.stadiums.length - 1);this.autoSlideControl = 2};
 
         },
         invertSlide: function(){

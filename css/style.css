@@ -7,13 +7,13 @@ main{
     max-width: 100%;
     max-height: 100vh;
     overflow: hidden;
+    
 }
 
 div.my-carousel-container{
 
-    /* min-height: 700px;
-    min-width:800px ; */
-
+    
+    min-width: 800px;
     height: 70vh;
     width: 75vw;
     margin: 0 auto;
@@ -90,9 +90,9 @@ div.my-next > span::after{
 
 #my-after-carousel{
     bottom: 2rem;
+    min-width: 800px;
 }
 
 #my-after-carousel input{
-
-    left: 2.5rem;
+    width: 50px;
 }

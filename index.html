@@ -31,12 +31,13 @@
 
         <div class="container-fluid pt-4">
             <div class="row text-center">
-                <div class="col-12 p-3" id="my-before-carousel">
+                <div class="col-12 p-3 mb-5" id="my-before-carousel">
                     <h1>The Most Expensive NFL Stadiums</h1>
                 </div>
 
-                <div class="col-12 p-5">
-                    <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel" @mouseover="stopSlide()" @mouseleave="restartSlide()">
+                <div class="col-12">
+                    <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel" @mouseover="stopSlide()"
+                        @mouseleave="restartSlide()">
                         <div class="my-carousel-images position-relative shadow">
                             <!-- immagini -->
                             <img :src="stadiums[activeElement].image" alt="image of "
@@ -45,18 +46,18 @@
                             <span class="description position-absolute">{{stadiums[activeElement].description}}</span>
 
                         </div>
-                        <div class="my-thumbnails position-relative d-flex shadow" >
+                        <div class="my-thumbnails position-relative d-flex shadow">
                             <!-- prev -->
                             <div class="my-previous position-absolute">
                                 <span class="my-prev-hook" @click="prevImage()"></span>
                             </div>
                             <!-- immagini interne -->
 
-                            <div v-for="(stadium, index) in stadiums" class="single-thumbnail" :class="(index == activeElement) ? 'active' : ''">
-                                <img :src="stadiums[index].image" alt="image of "
-                                :alt="stadiums[index].description">
+                            <div v-for="(stadium, index) in stadiums" class="single-thumbnail"
+                                :class="(index == activeElement) ? 'active' : ''">
+                                <img :src="stadiums[index].image" alt="image of " :alt="stadiums[index].description">
                             </div>
-                        
+
 
                             <!-- next -->
                             <div class="my-next position-absolute">
@@ -66,12 +67,12 @@
                     </div>
                 </div>
 
-                <div class="col-12 p-3 d-flex justify-content-center p-0 position-absolute" id="my-after-carousel">
+                <div class="col-12 p-3 d-flex justify-content-center" id="my-after-carousel">
 
-                    <div class="form-check form-switch col-2">
-                        <input class="form-check-input ps-5 position-relative" type="checkbox" role="switch"
-                            id="flexSwitchCheckDefault" @click="invertSlide()">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Invert Scroll</label>
+                    <div class="form-check form-switch col-12 d-flex justify-content-center">
+                        <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                            @click="invertSlide()">
+                        <h5>invert scroll</h5>
                     </div>
 
                 </div>
