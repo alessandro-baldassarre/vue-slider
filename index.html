@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- fontaweson -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- vuejs cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Vue Slider</title>
+</head>
+
+<body>
+
+    <main id="app">
+
+        <div class="container-fluid pt-4">
+            <div class="row text-center">
+                <div class="col-12 p-3" id="my-before-carousel">
+                    <h1>The Most Expensive NFL Stadiums</h1>
+                </div>
+
+                <div class="col-12 p-5">
+                    <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel">
+                        <div class="my-carousel-images position-relative shadow">
+                            <!-- immagini -->
+                            <img :src="stadiums[activeElement].image" alt="image of "
+                                :alt="stadiums[activeElement].description">
+
+                            <span class="description position-absolute">{{stadiums[activeElement].description}}</span>
+
+                        </div>
+                        <div class="my-thumbnails position-relative d-flex shadow" >
+                            <!-- prev -->
+                            <div class="my-previous position-absolute">
+                                <span class="my-prev-hook" @click="prevImage()"></span>
+                            </div>
+                            <!-- immagini interne -->
+
+                            <div v-for="(stadium, index) in stadiums" class="single-thumbnail" :class="(index == activeElement) ? 'active' : ''">
+                                <img :src="stadiums[index].image" alt="image of "
+                                :alt="stadiums[index].description">
+                            </div>
+                        
+
+                            <!-- next -->
+                            <div class="my-next position-absolute">
+                                <span class="my-next-hook" @click="nextImage()"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 p-3 d-flex justify-content-center p-0 position-absolute" id="my-after-carousel">
+
+                    <div class="form-check form-switch col-2">
+                        <input class="form-check-input ps-5 position-relative" type="checkbox" role="switch"
+                            id="flexSwitchCheckDefault" @click="invertSlide()">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Invert Scroll</label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
