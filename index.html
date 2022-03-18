@@ -54,7 +54,7 @@
                             <!-- immagini interne -->
 
                             <div v-for="(stadium, index) in stadiums" class="single-thumbnail"
-                                :class="(index == activeElement) ? 'active' : ''">
+                                :class="(index == activeElement) ? 'active' : ''" @click="changeActive(index)">
                                 <img :src="stadiums[index].image" alt="image of " :alt="stadiums[index].description">
                             </div>
 

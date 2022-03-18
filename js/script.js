@@ -88,6 +88,9 @@ const app = new Vue({
             clearInterval(this.autoSlide);
             this.autoSlide = setInterval(this.nextImage,2000);
             this.autoSlideControl = 1;   
+        },
+        changeActive: function(indexSelector){
+            this.activeElement = indexSelector;
         }
        
     }

@@ -48,6 +48,10 @@ div.single-thumbnail{
     filter: brightness(45%);
 }
 
+div.single-thumbnail:hover{
+    cursor: pointer;
+}
+
 .single-thumbnail.active{
     border: 4px solid black;
     filter: brightness(100%);
